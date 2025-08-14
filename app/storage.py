@@ -1,9 +1,43 @@
+# Eliminar seguimiento de ejercicio
+def eliminar_seguimiento(fecha, video_id):
+    import pandas as pd
+    if not os.path.exists(SEGUIMIENTO_PATH):
+        return False
+    df = pd.read_csv(SEGUIMIENTO_PATH)
+    original_len = len(df)
+    df = df[~((df["fecha"] == fecha) & (df["video_id"] == video_id))]
+    df.to_csv(SEGUIMIENTO_PATH, index=False)
+    return len(df) < original_len
 import json
 import pandas as pd
 import os
 
 CATEGORIAS_PATH = os.path.join(os.path.dirname(__file__), "categorias.json")
 VIDEOS_PATH = os.path.join(os.path.dirname(__file__), "videos.csv")
+SEGUIMIENTO_PATH = os.path.join(os.path.dirname(__file__), "seguimiento.csv")
+# Guardar seguimiento de ejercicio
+def guardar_seguimiento(fecha, video):
+    registro = {
+        "fecha": fecha,
+        "video_id": video["id"],
+        "url": video["url"],
+        "titulo": video["titulo"],
+        "categorias": video["categorias"]
+    }
+    df = pd.DataFrame([registro])
+    if not os.path.exists(SEGUIMIENTO_PATH):
+        df.to_csv(SEGUIMIENTO_PATH, index=False)
+    else:
+        df.to_csv(SEGUIMIENTO_PATH, mode="a", header=False, index=False)
+
+# Cargar seguimientos
+def cargar_seguimientos():
+    if not os.path.exists(SEGUIMIENTO_PATH):
+        return []
+    df = pd.read_csv(SEGUIMIENTO_PATH)
+    df = df.replace({pd.NA: "", float('nan'): "", None: ""})
+    df = df.fillna("")
+    return df.to_dict(orient="records")
 
 # Cargar categorías
 def cargar_categorias():

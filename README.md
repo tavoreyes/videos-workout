@@ -14,6 +14,11 @@ Aplicación web desarrollada con FastAPI y frontend en HTML, CSS y JavaScript, d
 
 🔍 **Consulta amigable:** Visualiza y filtra videos por categoría en una interfaz clara y responsiva.
 
+
+🎬 **Interfaz visual moderna:** Los botones de cada video (ver, editar, marcar seguimiento) aparecen como iconos alineados en la parte inferior de cada tarjeta, usando Bootstrap y SVG para una experiencia clara y rápida.
+
+👁 **Nuevo botón 'Ver video':** Ahora se muestra como un icono azul de "visualizar" (eye) para mayor claridad.
+
 ✏ **Edición en línea:** Modifica directamente desde la interfaz web el título, descripción y categorías de cualquier video.
 
 🎛 **Interfaz adaptable:** Botón para mostrar/ocultar el formulario de captura según preferencia.
