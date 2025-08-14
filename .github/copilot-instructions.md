@@ -1,0 +1,7 @@
+- [x] Proyecto FastAPI + HTML/JS para gestión de videos de Facebook creado.
+- [x] Estructura de carpetas y archivos iniciales generada.
+- [x] Dependencias listadas en requirements.txt.
+- [x] README.md con instrucciones de uso creado.
+- [x] Instalar dependencias y probar ejecución local.
+- [x] Validar funcionamiento de endpoints y frontend.
+- [x] Documentar cualquier ajuste necesario.
